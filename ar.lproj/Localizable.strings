@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  MathGame
+
+  Created by Razan Aldossari on 16/06/1444 AH.
+  
+*/
+
+"Score: %lld" = "المجموع: %lld";
+
+"Addition" = "الجمع";
+"Subtraction" = "الطرح";
+"Multiplication" = "الضرب";
+"Dividation" = "القسمة";
+
+
+"Multiply" = "ضرب";
+"Subtracted From" = "ناقص";
+"Added To" = "زائد";
+"Divided At" = "قسمة";
+
+
+"Back" = "الخلف";
