@@ -21,6 +21,7 @@ struct Multiplication: View {
     @Environment(\.horizontalSizeClass) var widthSizeClass: UserInterfaceSizeClass?
     var di = Image(systemName: "multiply")
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    let preferredLanguage = NSLocale.preferredLanguages[0]
     var body: some View {
         ZStack{
             Back()
@@ -50,7 +51,12 @@ struct Multiplication: View {
                     self.mode.wrappedValue.dismiss()
                 }){
                     HStack{
+                        if preferredLanguage == "en" {
                         Image(systemName: "arrow.left")
+                        }
+                        else{
+                            Image(systemName: "arrow.right")
+                        }
                         Text("Back")
                     }
                     .font(.system(size: 60))
@@ -85,7 +91,12 @@ struct Multiplication: View {
                     self.mode.wrappedValue.dismiss()
                 }){
                     HStack{
+                        if preferredLanguage == "en" {
                         Image(systemName: "arrow.left")
+                        }
+                        else{
+                            Image(systemName: "arrow.right")
+                        }
                         Text("Back")
                     }
                     .font(.system(size: 30))

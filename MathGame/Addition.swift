@@ -22,6 +22,10 @@ struct Addition: View {
     var di = Image(systemName: "plus")
     
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    
+    //@State private var local = Locale(identifier: "en")
+    let preferredLanguage = NSLocale.preferredLanguages[0]
+    
     var body: some View {
         
         ZStack{
@@ -51,7 +55,12 @@ struct Addition: View {
                     self.mode.wrappedValue.dismiss()
                 }){
                     HStack{
+                        if preferredLanguage == "en" {
                         Image(systemName: "arrow.left")
+                        }
+                        else{
+                            Image(systemName: "arrow.right")
+                        }
                         Text("Back")
                     }
                     .font(.system(size: 60))
@@ -86,7 +95,14 @@ struct Addition: View {
                     self.mode.wrappedValue.dismiss()
                 }){
                     HStack{
+                        if preferredLanguage == "en" {
                         Image(systemName: "arrow.left")
+                      //  .accessibility(hidden: false)
+                            
+                        }
+                        else{
+                            Image(systemName: "arrow.right")
+                        }
                         Text("Back")
                     }
                     .font(.system(size: 30))

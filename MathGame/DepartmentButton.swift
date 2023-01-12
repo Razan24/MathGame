@@ -34,6 +34,7 @@ struct DepartmentButton: View {
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                     .padding(.top,25)
+                    //.accessibilityLabel("Dividation")
                 Text("\(de)")
                     .foregroundColor(Color("Button"))
             }

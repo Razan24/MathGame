@@ -14,7 +14,8 @@ struct MathGameApp: App {
            
             NavigationView{
                 ContentView()
-            }.navigationViewStyle(.stack)
+            }
+            .navigationViewStyle(.stack)
         }
     }
 }
