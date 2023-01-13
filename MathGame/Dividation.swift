@@ -10,17 +10,16 @@ import SwiftUI
 struct Dividation: View {
     @State private var correctA = 0
     @State private var choice : [Int] = [0, 1, 2, 3]
-  
     @State private var firstnum = 0
-    @State private var secondnum = 0
+    @State private var secondnum = 1
     @State private var difficulty = 80
     @State private var score = 0
+    @State private var QN = 1
     var device = UIDevice.current.userInterfaceIdiom
     @Environment(\.verticalSizeClass) var heightSizeClass: UserInterfaceSizeClass?
     @Environment(\.horizontalSizeClass) var widthSizeClass: UserInterfaceSizeClass?
-    var di = Image(systemName: "divide")
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
-    let preferredLanguage = NSLocale.preferredLanguages[0]
+    let local = Locale(identifier: "en")
     var body: some View {
         ZStack{
             Back()
@@ -28,34 +27,27 @@ struct Dividation: View {
             if device == .pad {
                 HStack{
                     Text("\(firstnum)")
-                        .font(.system(size: 170))
+                        .font(.system(size: 150))
                         .fontWeight(.bold)
                         .padding(.bottom)
-                    VStack(spacing: -30){
-                        Text("Divided At")
-                            .foregroundColor(Color("Back"))
-                        Text("\(di)")
-                            .font(.system(size: 140))
-                            .fontWeight(.bold)
-                            .padding(.bottom)
-                        
-                    }
+                    Image(systemName: "divide")
+                    .accessibilityLabel("Divided At")
+                    .font(.system(size: 120))
+                    .fontWeight(.bold)
+                    .padding(.bottom,10)
                     Text("\(secondnum)")
-                        .font(.system(size: 170))
+                        .font(.system(size: 150))
                         .fontWeight(.bold)
                         .padding(.bottom)
-                }
+                }.padding(.bottom,-20)
                 .navigationBarBackButtonHidden(true)
                 .navigationBarItems(leading: Button(action : {
                     self.mode.wrappedValue.dismiss()
                 }){
                     HStack{
-                        if preferredLanguage == "en" {
-                        Image(systemName: "arrow.left")
-                        }
-                        else{
-                            Image(systemName: "arrow.right")
-                        }
+                        Image("arr")
+                            .resizable()
+                            .frame(width: 50, height: 45)
                         Text("Back")
                     }
                     .font(.system(size: 60))
@@ -71,15 +63,11 @@ struct Dividation: View {
                         .font(.system(size: 90))
                         .fontWeight(.bold)
                         .padding(.bottom)
-                    VStack(spacing: -30){
-                        Text("Divided At")
-                            .foregroundColor(Color("Back"))
-                        Text("\(di)")
-                            .font(.system(size: 80))
-                            .fontWeight(.bold)
-                            .padding(.bottom,-1)
-                        
-                    }
+                    Image(systemName: "divide")
+                    .accessibilityLabel("Divided At")
+                    .font(.system(size: 70))
+                    .fontWeight(.bold)
+                    .padding(.bottom,10)
                     Text("\(secondnum)")
                         .font(.system(size: 90))
                         .fontWeight(.bold)
@@ -90,12 +78,9 @@ struct Dividation: View {
                     self.mode.wrappedValue.dismiss()
                 }){
                     HStack{
-                        if preferredLanguage == "en" {
-                        Image(systemName: "arrow.left")
-                        }
-                        else{
-                            Image(systemName: "arrow.right")
-                        }
+                        Image("arr")
+                            .resizable()
+                            .frame(width: 40, height: 35)
                         Text("Back")
                     }
                     .font(.system(size: 30))
@@ -149,7 +134,7 @@ struct Dividation: View {
                 .padding(.bottom,-20)
             }//else if
             else if heightSizeClass == .regular && device == .phone {
-                HStack{
+                HStack(spacing: -10){
                     ForEach(0..<2) { index in
                         Button {
                             answerIsCorrect(answer: (choice[index]))
@@ -160,7 +145,8 @@ struct Dividation: View {
                     }//label
                     }//for
                 }//H
-                HStack{
+                .padding(.bottom,-20)
+                HStack(spacing: -10){
                     ForEach(2..<4) { index in
                         Button {
                             answerIsCorrect(answer: (choice[index]))
@@ -171,23 +157,40 @@ struct Dividation: View {
                     }//label
                     }//for
                 }//H
-                
             }
             
             if device == .pad {
-                Text("Score: \(score)")
-                    .font(.system(size: 100))
-                    .fontWeight(.bold)
-                
+                VStack(alignment: .leading,spacing: 10){
+                    Text("Question: \(QN)")
+                        .font(.system(size: 90))
+                        .fontWeight(.bold)
+                    Text("Score: \(score)")
+                        .font(.system(size: 90))
+                        .fontWeight(.bold)
+                }
             }
             
+            else if heightSizeClass == .compact && device == .phone{
+                HStack(spacing: 100){
+                    Text("Question: \(QN)")
+                        .font(.system(size: 50))
+                        .fontWeight(.bold)
+                    Text("Score: \(score)")
+                        .font(.system(size: 50))
+                        .fontWeight(.bold)
+                }
+            }
             else{
-                Text("Score: \(score)")
-                    .font(.system(size: 50))
-                    .fontWeight(.bold)
+                VStack(alignment: .leading,spacing: 30){
+                    Text("Question: \(QN)")
+                        .font(.system(size: 50))
+                        .fontWeight(.bold)
+                    Text("Score: \(score)")
+                        .font(.system(size: 50))
+                        .fontWeight(.bold)
+                        
+                }
             }
-            
-            
         }//V
         .foregroundColor(.white)
             
@@ -198,9 +201,9 @@ struct Dividation: View {
         
         if isCorrect{
             self.score += 1
-        } else {
-            self.score -= 1
+            self.QN += 1
         }
+        else{self.QN += 1}
     }
     
         func division(){

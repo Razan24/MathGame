@@ -13,8 +13,8 @@ struct AnswerButton: View {
     var body: some View {
         if device == .pad {
             Text("\(number)")
-                .frame(width: 300, height: 290)
-                .font(.system(size: 150))
+                .frame(width: 260, height: 260)
+                .font(.system(size: 140))
                 .fontWeight(.bold)
                 .foregroundColor(.white)
                 .background(Color("Button"))

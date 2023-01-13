@@ -8,22 +8,19 @@
 import SwiftUI
 
 struct Department: View {
-    
     @Environment(\.verticalSizeClass) var heightSizeClass: UserInterfaceSizeClass?
     @Environment(\.horizontalSizeClass) var widthSizeClass: UserInterfaceSizeClass?
     var device = UIDevice.current.userInterfaceIdiom
     var body: some View {
-      //  NavigationView{
             ZStack{
                 Back()
                 
                 VStack{
                     if device == .pad {
-                        Image("appstore")
+                        Image("logo")
                             .resizable()
-                            .frame(width: 700,height: 700)
-                            .padding(.all,-240)
-                            .padding(.top,-30)
+                            .frame(width: 700,height: 400)
+                            .padding(.top,-40)
                         HStack{
                             NavigationLink(destination: Addition(),
                                            label: {
@@ -48,11 +45,10 @@ struct Department: View {
                         
                     }
                     else if heightSizeClass == .compact && device == .phone {
-                        Image("appstore")
+                        Image("logo")
                             .resizable()
-                            .frame(width: 400,height: 400)
-                            .padding(.all,-150)
-                            .padding(.bottom,10)
+                            .frame(width: 400,height: 200)
+                            .padding(.top,-20)
                         HStack{
                             NavigationLink(destination: Addition(),
                                            label: {
@@ -74,11 +70,9 @@ struct Department: View {
                         }//H
                     }
                     else if device == .phone {
-                        Image("appstore")
+                        Image("logo")
                             .resizable()
-                            .frame(width: 400,height: 400)
-                            .padding(.all,-150)
-                            .padding(.bottom,50)
+                            .frame(width: 400,height: 200)
                             
                         HStack{
                             NavigationLink(destination: Addition(),
@@ -105,8 +99,6 @@ struct Department: View {
                 .foregroundColor(.white)
                 
             }
-     //   }
-            
     }
 }
 

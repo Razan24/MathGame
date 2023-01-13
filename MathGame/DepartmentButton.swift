@@ -9,7 +9,6 @@ import SwiftUI
 
 struct DepartmentButton: View {
     var di : Image
-   
     var de : String
     var device = UIDevice.current.userInterfaceIdiom
     var body: some View {
@@ -34,7 +33,6 @@ struct DepartmentButton: View {
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                     .padding(.top,25)
-                    //.accessibilityLabel("Dividation")
                 Text("\(de)")
                     .foregroundColor(Color("Button"))
             }
