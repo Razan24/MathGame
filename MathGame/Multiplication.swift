@@ -119,7 +119,7 @@ struct Multiplication: View {
                 }//H
             }//if
             else if heightSizeClass == .compact && device == .phone {
-                HStack{
+                HStack(spacing:-10){
                     ForEach(0..<4) { index in
                         Button {
                             answerIsCorrect(answer: choice[index])
