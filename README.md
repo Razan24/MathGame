@@ -29,4 +29,5 @@ https://user-images.githubusercontent.com/103580674/212412067-ab926cdc-293a-49fd
 
 <h2>Challenge Summary</h2>
 An App that  provides a way for low vision children who want(s) to study by designing app with clear colors.
-![FunMath](https://user-images.githubusercontent.com/103580674/212404625-b3550ae5-cbaf-43b1-9256-9c7ea11bbb71.jpeg)
+![FunMath](https://user-images.githubusercontent.com/103580674/212412555-43848daa-44f7-435f-b77c-c01c4e0c94a6.jpeg)
+
