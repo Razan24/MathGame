@@ -12,12 +12,17 @@ Make an inclusive solution that help a low vision and color blind children
 A simple math game for low vision and color blind children who want to learn math and get used to simple mathematic problems so that it became easer to solve mathematic problems
 
 
-<h2>Technologies & Tools</h2>
+<h2>Features</h2>
 <ul>
-<li>SwiftUI</li>
 <li>Localization (Arabic)</li>
 <li>VoiceOver</li>
 <li>Support Multiple Devices (iPad,iPhone)</li>
+</ul>
+
+
+<h2>Technologies & Tools</h2>
+<ul>
+<li>SwiftUI</li>
 <li>XCode</li>
 </ul>
 
